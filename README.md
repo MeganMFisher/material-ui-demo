@@ -1,19 +1,25 @@
 # Material-UI
 
+
 ## Installation: 
 
 `npm install material-ui`
 
+Material-UI was designed with the Roboto font in mind. So be sure to include it in your project in your css file.
 
-Material-UI was designed with the Roboto font in mind. So be sure to include it in your project.
+App.css: 
+```
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
-`@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');`
+body {
+    font-family: Roboto;
+}
+```
+
 
 ## Getting started: 
 
 The quickest way to get up and running is by using the MuiThemeProvider to inject the theme into your application. 
-
-`npm install material-ui/styles/MuiThemeProvider`
 
 In your index.js import MuiThemeProvider and wrap the app component with MuiThemeProvider.
 
@@ -28,6 +34,31 @@ ReactDOM.render(
 );
 ```
 
+## Raised Button: 
+
+Import RaisedButton from material-ui/RaisedButton. Then insert that component into your return. 
+
+```
+import React, { Component } from 'react';
+import './App.css';
+import RaisedButton from 'material-ui/RaisedButton';
+
+class App extends Component {
+  render() {
+    return (
+      <div >
+        <RaisedButton label="Click Me" />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+
+
+
 ### Resources: 
 - https://www.npmjs.com/package/material-ui
-- 
+- https://github.com/callemall/material-ui/blob/master/src/index.js
