@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Menu from './Menu';
-// RAISED BUTTON //
-import RaisedButton from 'material-ui/RaisedButton';
-// STAR ICON BUTTON //
-import IconButton from 'material-ui/IconButton';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
+import DialogBox from './DialogBox';
 
 class App extends Component {
   render() {
@@ -13,12 +9,7 @@ class App extends Component {
       <div >
         <Menu/>
 
-
-        {/* <RaisedButton label="Click Me" />
-
-        <IconButton>
-          <ActionGrade />
-        </IconButton> */}
+        <DialogBox/>
 
       </div>
     );
