@@ -72,6 +72,10 @@ class App extends Component {
 export default App;
 ```
 
+## Adding a side menu: 
+
+
+
 
 ## Adding a dialog modal:
 
@@ -158,7 +162,25 @@ Above your return in your render, add an array called actions that has two items
 
 ```
 
-You should now have a working dialog modal!
+You should now have a working dialog modal component that you can import and inject into your app.js
+
+```
+import React, { Component } from 'react';
+import './App.css';
+import DialogBox from './components/DialogBox';
+
+class App extends Component {
+  render() {
+    return (
+      <div >
+        <DialogBox/>
+      </div>
+    );
+  }
+}
+
+export default App;
+``` 
 
 
 # Resources: 
