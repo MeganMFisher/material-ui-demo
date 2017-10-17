@@ -11,7 +11,7 @@ A visual language that synthesizes the classic principles of good design with th
 
 ## Why is it useful?
 
-You can easily add elements from Google's Material Design into your application to take the UI up a notch. You can also easily add in modals, a side menus, styled buttons, tables, date pickers, etc.
+You can easily add elements from Google's Material Design into your application to take the UI up a notch. You can also easily add in modals, side menu, styled buttons, tables, date pickers, sliders, tool bars, progress bars, grid lists, and so much more into your application. 
 
 
 # Installation: 
@@ -187,6 +187,12 @@ The first item in the array is a ListItem component with a primaryText prop equa
         </List>
       </Drawer>
   ```
+   
+   - **PrimaryText:** This is the block element that contains the primary text. If a string is passed in, a div tag will be rendered.
+
+   - **NestedItems:** An array of ListItems to nest underneath the current ListItem.
+
+
 
   You now have a nested menu within your side menu. If we want add a nested menu within the nested menu we would add the nestedItems prop to our 'Accessories' ListItem that is equal to an object with an array and it would have three ListItem components. The first would have a primaryText equal to 'Hats'. The second will be equal to 'Jewelry' and the third 'Scarves'.
 
