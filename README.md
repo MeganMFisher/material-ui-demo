@@ -11,7 +11,7 @@ A visual language that synthesizes the classic principles of good design with th
 
 ## Why is it useful?
 
-You can easily add elements from Google's Material Design into your application to make the UI much more sleek and professional looking.
+You can easily add elements from Google's Material Design into your application to take the UI up a notch. You can also easily add in modals, a side menus, styled buttons, tables, date pickers, etc.
 
 
 # Installation: 
@@ -49,7 +49,7 @@ ReactDOM.render(
 );
 ```
 
-## How easy is it?: 
+## Adding a basic button: 
 
 After you set up MuiThemeProvider to use a raised button in material-ui you simply import RaisedButton from material-ui/RaisedButton and then insert the component into your application. Now you have a fully styled raised button. Its that simple.
 
@@ -345,9 +345,9 @@ Above your return in your render, add an array called actions that has two items
   - **Primary:** 	If true, colors button according to primaryTextColor from the Theme.
 
   - **KeyboardFocused:** Force the user to use one of the actions in the Dialog. Clicking outside the Dialog will not trigger the onRequestClose.
-  
 
-You should now have a working dialog modal component that you can import and inject into your app.js
+
+You should now have a working dialog modal component that you can import and inject into your app.js in between an section element.
 
 ```
 import React, { Component } from 'react';
@@ -359,7 +359,9 @@ class App extends Component {
     return (
       <div >
         <Menu/>
-        <DialogBox/>
+        <section>
+         <DialogBox/>
+        </section>
       </div>
     );
   }

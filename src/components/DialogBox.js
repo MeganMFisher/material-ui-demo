@@ -37,7 +37,7 @@ export default class DialogBox extends Component {
         ];
     
         return (
-          <div>
+          <div className='deleteButton'>
             <RaisedButton label="Delete" onClick={this.handleOpen} />
             <Dialog
               title="Are you sure you want to delete this?"

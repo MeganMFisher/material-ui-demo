@@ -9,8 +9,9 @@ class App extends Component {
       <div >
         <Menu/>
 
-        <DialogBox/>
-
+        <section>
+          <DialogBox/>
+        </section>
       </div>
     );
   }

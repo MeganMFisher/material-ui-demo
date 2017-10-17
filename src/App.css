@@ -6,7 +6,16 @@ body {
 
 
 nav {
-    background: grey;
+    background: #05b5cf;
     height: 80px;
     width: 100%;
+}
+
+section {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #eff4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
