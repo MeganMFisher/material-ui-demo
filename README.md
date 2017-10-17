@@ -78,9 +78,14 @@ Open up the Menu.js file.
 
 We will need to import Drawer from material-ui/Drawer and List and ListItem from material-ui/List.
 
+For the icon that we click on to open the side menu we will import IconButton from material-ui/IconButton and ActionGrade fromo material-ui/svg-icons/action/grade.
+
 ```
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
+
+import IconButton from 'material-ui/IconButton';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
 ```
 
 Create a property on state called open and have it set to false. 
@@ -101,7 +106,17 @@ handleToggle = () => {
 }
 ```
 
-In your render under the nav elements insert the Drawer component. This should have a prop of docked equal to false. A prop of width equal to 300. A prop of open equal to this.state.open and a prop of onRequestChange equal to a function that takes open as the parameter and sets state with that.
+In your render within the nav element insert the IconButton component with a prop of onClick equal to this.handleToggle. Inside the IconButton add the ActionGradde component. This will give you a star icon that will open our side menu.
+
+```
+        <nav>
+          <IconButton onClick={this.handleToggle}>
+            <ActionGrade />
+          </IconButton>
+        </nav>
+```
+
+In your render under the nav element insert the Drawer component. This should have a prop of docked equal to false. A prop of width equal to 300. A prop of open equal to this.state.open and a prop of onRequestChange equal to a function that takes open as the parameter and sets state with that.
 
 ```
  <Drawer
@@ -111,6 +126,16 @@ In your render under the nav elements insert the Drawer component. This should h
         onRequestChange={(open) => this.setState({open})}>
 </Drawer>
 ```
+
+  - **Docked:** If true, the Drawer will be docked. In this state, the overlay won't show and clicking on a menu item will not close the Drawer.
+
+  - **Width:** 	The width of the Drawer in pixels or percentage in string format ex. 50% to fill half of the window or 100% and so on. Defaults to using the values from theme.
+
+  - **Open:** If true, the Drawer is opened. Providing a value will turn the Drawer into a controlled component.
+
+  - **OnRequestChange:** Callback function fired when the open state of the Drawer is requested to be changed.
+
+
 
 Within your Drawer component add the List component with three ListItem components. The first list item should have a prop of primaryText that is equal to 'Home'. The second should have the same prop but equal to 'About' and the third should be equal to 'Store'.
 
@@ -211,9 +236,6 @@ class App extends Component {
     return (
       <div >
         <Menu/>
-
-        <DialogBox/>
-
       </div>
     );
   }
@@ -267,7 +289,7 @@ In your return create a raised button with a label of delete that on click will 
         );
 ```
 
-Below your return create a dialog component with title equal to 'Are you sure you want to delete this?', modal equal to false, open equal to this.state.open, and onRequestClose equal to this.handle close. You can look up what each of these do at http://www.material-ui.com/#/components/dialog. 
+Below your return create a dialog component with title equal to 'Are you sure you want to delete this?', modal equal to false, open equal to this.state.open, and onRequestClose equal to this.handle close.  
 
 Add actions equal to actions and in the next step we will create the actions. 
 
@@ -286,6 +308,18 @@ Add actions equal to actions and in the next step we will create the actions.
           </div>
         );
 ```
+
+  - **Title:** The title to display on the Dialog. Could be number, string, element or an array containing these types.
+
+  - **Actions:** 	Action buttons to display below the Dialog content (children). This property accepts either a React element, or an array of React elements.
+
+  - **Modal:** Force the user to use one of the actions in the Dialog. Clicking outside the Dialog will not trigger the onRequestClose.
+
+  - **Open:** If true, the Drawer is opened. Providing a value will turn the Drawer into a controlled component.
+
+  - **OnRequestClose:** Fired when the Dialog is requested to be closed by a click outside the Dialog or on the buttons.
+
+
 
 Above your return in your render, add an array called actions that has two items. The they are both flat buttons with primary equal to true and onClick equal to this.handleClose. The first should have a lable of 'Cancel' and the second should have a label of 'Delete and a keyboardFocused set to true. You can look up what each of these do at http://www.material-ui.com/#/components/flat-button.
 
@@ -306,6 +340,13 @@ Above your return in your render, add an array called actions that has two items
 
 ```
 
+  - **Label:** Label for the button.
+
+  - **Primary:** 	If true, colors button according to primaryTextColor from the Theme.
+
+  - **KeyboardFocused:** Force the user to use one of the actions in the Dialog. Clicking outside the Dialog will not trigger the onRequestClose.
+  
+
 You should now have a working dialog modal component that you can import and inject into your app.js
 
 ```
@@ -317,6 +358,7 @@ class App extends Component {
   render() {
     return (
       <div >
+        <Menu/>
         <DialogBox/>
       </div>
     );

@@ -27,9 +27,9 @@ render() {
     return (
         <div>
         <nav>
-        <IconButton tooltip="bottom-right" touch={true} tooltipPosition="bottom-right">
-      <ActionGrade />
-    </IconButton>
+          <IconButton onClick={this.handleToggle}>
+            <ActionGrade />
+          </IconButton>
         </nav>
 
       <Drawer
