@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Menu from './Menu';
-import DialogBox from './DialogBox';
+import Menu from './components/Menu';
+import DialogBox from './components/DialogBox';
 
 class App extends Component {
   render() {

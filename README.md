@@ -73,7 +73,70 @@ export default App;
 ```
 
 
+## Adding a dialog modal:
 
+Open up the DialogBox.js Component. 
+
+We will need to import Dialog, FlatButton, RaisedButton from material-ui.
+
+```
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+```
+
+Create a property on state called open and set it to false. This will be what tells the modal to not open initially. 
+
+```
+    state = {
+      open: false,
+    };
+```
+
+Now we need to create a method that will open the modal and a method to close the modal. 
+
+```
+      handleOpen = () => {
+        this.setState({
+          open: true
+        });
+      };
+    
+      handleClose = () => {
+        this.setState({
+          open: false
+        });
+      };
+```
+
+In your return create a raised button with a label of delete that on click will fire the handleOpen method. 
+
+```
+        return (
+          <div>
+            <RaisedButton label="Delete" onClick={this.handleOpen} />
+          </div>
+        );
+```
+
+Below your return create a dialog component with title equal to 'Are you sure you want to delete this?', modal equal to false, open equal to this.state.open, and onRequestClose equal to this.handle close. You can look up what each of these do at http://www.material-ui.com/#/components/dialog. 
+
+```
+        return (
+          <div>
+            <RaisedButton label="Delete" onClick={this.handleOpen} />
+            <Dialog
+              title="Are you sure you want to delete this?"
+              modal={false}
+              open={this.state.open}
+              onRequestClose={this.handleClose}
+            >             
+            </Dialog>
+          </div>
+        );
+```
+
+Above your return in your render, add a 
 
 # Resources: 
 - https://www.npmjs.com/package/material-ui
