@@ -121,12 +121,15 @@ In your return create a raised button with a label of delete that on click will 
 
 Below your return create a dialog component with title equal to 'Are you sure you want to delete this?', modal equal to false, open equal to this.state.open, and onRequestClose equal to this.handle close. You can look up what each of these do at http://www.material-ui.com/#/components/dialog. 
 
+Add actions equal to actions and in the next step we will create the actions. 
+
 ```
         return (
           <div>
             <RaisedButton label="Delete" onClick={this.handleOpen} />
             <Dialog
               title="Are you sure you want to delete this?"
+              actions={actions}
               modal={false}
               open={this.state.open}
               onRequestClose={this.handleClose}
@@ -136,7 +139,27 @@ Below your return create a dialog component with title equal to 'Are you sure yo
         );
 ```
 
-Above your return in your render, add a 
+Above your return in your render, add an array called actions that has two items. The they are both flat buttons with primary equal to true and onClick equal to this.handleClose. The first should have a lable of 'Cancel' and the second should have a label of 'Delete and a keyboardFocused set to true. You can look up what each of these do at http://www.material-ui.com/#/components/flat-button.
+
+```
+        const actions = [
+          <FlatButton
+            label="Cancel"
+            primary={true}
+            onClick={this.handleClose}
+          />,
+          <FlatButton
+            label="Delete"
+            primary={true}
+            keyboardFocused={true}
+            onClick={this.handleClose}
+          />,
+        ];
+
+```
+
+You should now have a working dialog modal!
+
 
 # Resources: 
 - https://www.npmjs.com/package/material-ui
