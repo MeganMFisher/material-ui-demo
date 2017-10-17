@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
 
+import IconButton from 'material-ui/IconButton';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+
 
 
 export default class Menu extends Component {
@@ -24,7 +27,9 @@ render() {
     return (
         <div>
         <nav>
-            
+        <IconButton tooltip="bottom-right" touch={true} tooltipPosition="bottom-right">
+      <ActionGrade />
+    </IconButton>
         </nav>
 
       <Drawer

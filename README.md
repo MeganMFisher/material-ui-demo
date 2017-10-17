@@ -74,14 +74,159 @@ export default App;
 
 ## Adding a side menu: 
 
+Open up the Menu.js file.
+
+We will need to import Drawer from material-ui/Drawer and List and ListItem from material-ui/List.
+
+```
+import Drawer from 'material-ui/Drawer';
+import {List, ListItem} from 'material-ui/List';
+```
+
+Create a property on state called open and have it set to false. 
+
+```
+    this.state = {
+        open: false
+    };
+```
+
+We will need to create a handleToggle method to open and close the side menu. This method should change the open property on state to equal true or false depending on whether it is already open or not. When it is open this.state.open should be true and when it is closed this.state.open should be false. 
+
+```
+handleToggle = () => {
+    this.setState({
+        open: !this.state.open
+    });
+}
+```
+
+In your render under the nav elements insert the Drawer component. This should have a prop of docked equal to false. A prop of width equal to 300. A prop of open equal to this.state.open and a prop of onRequestChange equal to a function that takes open as the parameter and sets state with that.
+
+```
+ <Drawer
+        docked={false} 
+        width={300} 
+        open={this.state.open} 
+        onRequestChange={(open) => this.setState({open})}>
+</Drawer>
+```
+
+Within your Drawer component add the List component with three ListItem components. The first list item should have a prop of primaryText that is equal to 'Home'. The second should have the same prop but equal to 'About' and the third should be equal to 'Store'.
+
+```
+<Drawer
+        docked={false} 
+        width={300} 
+        open={this.state.open} 
+        onRequestChange={(open) => this.setState({open})}>
+        <List>
+          <ListItem primaryText="Home" />
+          <ListItem primaryText="About" />
+          <ListItem primaryText="Store" />
+        </List>
+      </Drawer>
+```
+
+You now have a basic side menu. However lets add a nested menu within your side menu. 
+
+Add another prop to the third ListItem called nestedItems that is equal to an object with an array. The first item in the array is a ListItem component with a primaryText prop equal to 'Tops'. 
+
+The second item in the array is a ListItem component with a primaryText prop equal to 'Bottoms'. 
+
+The first item in the array is a ListItem component with a primaryText prop equal to 'Accessories'. 
+
+```
+      <Drawer
+        docked={false} 
+        width={300} 
+        open={this.state.open} 
+        onRequestChange={(open) => this.setState({open})}>
+        <List>
+          <ListItem primaryText="Home" />
+          <ListItem primaryText="About" />
+          <ListItem
+            primaryText="Store"
+            nestedItems={[
+              <ListItem
+                primaryText="Tops"
+              />,
+              <ListItem
+                primaryText="Bottoms"
+              />,
+              <ListItem
+                primaryText="Accessories"
+              />,
+            ]}
+          />
+        </List>
+      </Drawer>
+  ```
+
+  You now have a nested menu within your side menu. If we want add a nested menu within the nested menu we would add the nestedItems prop to our 'Accessories' ListItem that is equal to an object with an array and it would have three ListItem components. The first would have a primaryText equal to 'Hats'. The second will be equal to 'Jewelry' and the third 'Scarves'.
+
+  ```
+        <Drawer
+        docked={false} 
+        width={300} 
+        open={this.state.open} 
+        onRequestChange={(open) => this.setState({open})}>
+        <List>
+          <ListItem primaryText="Home" />
+          <ListItem primaryText="About" />
+          <ListItem
+            primaryText="Store"
+            nestedItems={[
+              <ListItem
+                primaryText="Tops"
+              />,
+              <ListItem
+                primaryText="Bottoms"
+              />,
+              <ListItem
+                primaryText="Accessories"
+                nestedItems={[
+                  <ListItem primaryText="Hats" />,
+                  <ListItem primaryText="Jewelry" />,
+                  <ListItem kprimaryText="Scarves" />,
+                ]}
+              />,
+            ]}
+          />
+        </List>
+      </Drawer>
+```
 
 
+You should now have a working dialog Menu component that you can import and inject into your app.js
+
+```
+import React, { Component } from 'react';
+import './App.css';
+import Menu from './components/Menu';
+import DialogBox from './components/DialogBox';
+
+class App extends Component {
+  render() {
+    return (
+      <div >
+        <Menu/>
+
+        <DialogBox/>
+
+      </div>
+    );
+  }
+}
+
+export default App;
+```
 
 ## Adding a dialog modal:
 
-Open up the DialogBox.js Component. 
+Open up the DialogBox.js file. 
 
-We will need to import Dialog, FlatButton, RaisedButton from material-ui.
+We will need to import Dialog from material-ui/Dialog, FlatButton from material-ui/FlatButton, RaisedButton and material-ui/RaisedButton.
 
 ```
 import Dialog from 'material-ui/Dialog';
@@ -89,8 +234,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 ```
 
-Create a property on state called open and set it to false. This will be what tells the modal to not open initially. 
-
+Create a property on state called open and set it to false. 
 ```
     state = {
       open: false,
@@ -187,3 +331,4 @@ export default App;
 - https://www.npmjs.com/package/material-ui
 - https://github.com/callemall/material-ui/blob/master/src/index.js
 - https://material.io/guidelines/#introduction-principles
+- https://material.io/icons/
