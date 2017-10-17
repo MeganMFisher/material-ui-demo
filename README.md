@@ -333,7 +333,7 @@ Add actions equal to actions and in the next step we will create the actions.
 
 
 
-Above your return in your render, add an array called actions that has two items. The they are both flat buttons with primary equal to true and onClick equal to this.handleClose. The first should have a lable of 'Cancel' and the second should have a label of 'Delete and a keyboardFocused set to true. You can look up what each of these do at http://www.material-ui.com/#/components/flat-button.
+Above your return in your render, add an array called actions that has two items. The they are both flat buttons with primary equal to true and onClick equal to this.handleClose. The first should have a lable of 'Cancel' and the second should have a label of 'Delete and a keyboardFocused set to true. 
 
 ```
         const actions = [
