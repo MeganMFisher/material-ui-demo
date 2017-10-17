@@ -116,7 +116,7 @@ In your render within the nav element insert the IconButton component with a pro
         </nav>
 ```
 
-In your render under the nav element insert the Drawer component. This should have a prop of docked equal to false. A prop of width equal to 300. A prop of open equal to this.state.open and a prop of onRequestChange equal to a function that takes open as the parameter and sets state with that.
+In your render under the nav element insert the Drawer component. This should have a prop of docked equal to false. A prop of width equal to 300. A prop of open equal to this.state.open, and a prop of onRequestChange equal to a function that takes open as the parameter and sets state with that.
 
 ```
  <Drawer
@@ -242,6 +242,12 @@ class App extends Component {
 }
 
 export default App;
+```
+
+If you want to change the background of the side menu you can add the containerStyle prop and set that equal to an object with backgroundColor as the property and whatever color you'd like as the value.
+
+```
+  containerStyle={{backgroundColor: 'gray'}}
 ```
 
 ## Adding a dialog modal:
