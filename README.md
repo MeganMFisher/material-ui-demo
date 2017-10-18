@@ -1,4 +1,7 @@
-# Material-UI
+
+You can fork and clone to follow along with the demo to build a simple app using a couple material-ui components or if you want to see the finished code check out the finished branch on this repo.
+
+# Material-UI Demo
 
 ## What is it?
 
