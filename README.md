@@ -20,7 +20,7 @@ In your terminal run the following command to install material-ui.
 
 `npm install material-ui`
 
-Material-UI was designed with the Roboto font in mind. So be sure to include it in your project in your css file if you would like the rest of your fonts match theirs.
+Material-UI was designed with the Roboto font in mind. So be sure to include it in your project in your css file if you would like the rest of your fonts to be the same.
 
 App.css: 
 ```
